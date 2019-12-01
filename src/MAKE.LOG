@@ -1,0 +1,151 @@
+gcc -Wall -Winline -Wno-parentheses -O3 -ffast-math -mtune=i486 -DDOGS -DBETA -DV12C -DCALT  -c i_video.c -o obj/i_video.o
+i_video.c: In function 'I_ScanCode2DoomCode':
+i_video.c:118:23: error: 'key_ascii_table' undeclared (first use in this function)
+  118 |     default:   return key_ascii_table[a]>8 ? key_ascii_table[a] : a+0x80;
+      |                       ^~~~~~~~~~~~~~~
+i_video.c:118:23: note: each undeclared identifier is reported only once for each function it appears in
+i_video.c: At top level:
+i_video.c:189:1: warning: return type defaults to 'int' [-Wimplicit-int]
+  189 | DECLARE_GFX_DRIVER_LIST()
+      | ^~~~~~~~~~~~~~~~~~~~~~~
+i_video.c: In function 'DECLARE_GFX_DRIVER_LIST':
+i_video.c:190:1: error: expected declaration specifiers before 'DECLARE_COLOR_DEPTH_LIST'
+  190 | DECLARE_COLOR_DEPTH_LIST()
+      | ^~~~~~~~~~~~~~~~~~~~~~~~
+i_video.c:194:13: error: storage class specified for parameter 'pent_blit'
+  194 | extern void pent_blit(void *, size_t);
+      |             ^~~~~~~~~
+i_video.c:195:13: error: storage class specified for parameter 'blast'
+  195 | extern void blast(void *destin, void *src);             // blits to VGA planar memory
+      |             ^~~~~
+i_video.c:196:13: error: storage class specified for parameter 'ppro_blast'
+  196 | extern void ppro_blast(void *destin, void *src);        // same but for PPro CPU
+      |             ^~~~~~~~~~
+i_video.c:197:13: error: storage class specified for parameter 'blast_nobar'
+  197 | extern void blast_nobar(void *destin, void *src);       // as above but without doing lower part
+      |             ^~~~~~~~~~~
+i_video.c:198:13: error: storage class specified for parameter 'ppro_blast_nobar'
+  198 | extern void ppro_blast_nobar(void *destin, void *src);  // as above but without doing lower part
+      |             ^~~~~~~~~~~~~~~~
+i_video.c:201:16: error: storage class specified for parameter 'setsizeneeded'
+  201 | extern boolean setsizeneeded;
+      |                ^~~~~~~~~~~~~
+i_video.c:215:1: error: parameter 'modeswitched' is initialized
+  215 | int  modeswitched=0;
+      | ^~~
+i_video.c:222:27: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+  222 | void I_UpdateNoBlit (void){}
+      |                           ^
+i_video.c:226:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+  226 | {
+      | ^
+i_video.c:250:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+  250 | {
+      | ^
+i_video.c:304:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+  304 | {
+      | ^
+i_video.c:382:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+  382 | {
+      | ^
+i_video.c:395:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+  395 | {
+      | ^
+i_video.c:419:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+  419 | {/*
+      | ^
+i_video.c:436:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+  436 | {/*
+      | ^
+i_video.c:447:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+  447 | {
+      | ^
+i_video.c:468:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+  468 | {
+      | ^
+i_video.c:484:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+  484 | {
+      | ^
+i_video.c:623:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+  623 | {
+      | ^
+i_video.c:650:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+  650 | {
+      | ^
+i_video.c:217:5: error: declaration for parameter 'disk_icon' but no such parameter
+  217 | int disk_icon;
+      |     ^~~~~~~~~
+i_video.c:215:6: error: declaration for parameter 'modeswitched' but no such parameter
+  215 | int  modeswitched=0;
+      |      ^~~~~~~~~~~~
+i_video.c:214:6: error: declaration for parameter 'mode_string' but no such parameter
+  214 | char mode_string[128];
+      |      ^~~~~~~~~~~
+i_video.c:213:6: error: declaration for parameter 'fps_string' but no such parameter
+  213 | char fps_string[12];
+      |      ^~~~~~~~~~
+i_video.c:211:5: error: declaration for parameter 'blackband' but no such parameter
+  211 | int blackband; // GB 2014: for 640x480 fallback mode
+      |     ^~~~~~~~~
+i_video.c:210:5: error: declaration for parameter 'scroll_offset' but no such parameter
+  210 | int scroll_offset;
+      |     ^~~~~~~~~~~~~
+i_video.c:209:29: error: declaration for parameter 'linear' but no such parameter
+  209 | int in_page_flip, in_hires, linear;
+      |                             ^~~~~~
+i_video.c:209:19: error: declaration for parameter 'in_hires' but no such parameter
+  209 | int in_page_flip, in_hires, linear;
+      |                   ^~~~~~~~
+i_video.c:209:5: error: declaration for parameter 'in_page_flip' but no such parameter
+  209 | int in_page_flip, in_hires, linear;
+      |     ^~~~~~~~~~~~
+i_video.c:208:5: error: declaration for parameter 'in_graphics_mode' but no such parameter
+  208 | int in_graphics_mode;
+      |     ^~~~~~~~~~~~~~~~
+i_video.c:207:5: error: declaration for parameter 'hires' but no such parameter
+  207 | int hires;
+      |     ^~~~~
+i_video.c:206:5: error: declaration for parameter 'page_flip' but no such parameter
+  206 | int page_flip;          // killough 8/15/98: enables page flipping
+      |     ^~~~~~~~~
+i_video.c:205:5: error: declaration for parameter 'use_vsync' but no such parameter
+  205 | int use_vsync;          // killough 2/8/98: controls whether vsync is called
+      |     ^~~~~~~~~
+i_video.c:204:5: error: declaration for parameter 'show_fps' but no such parameter
+  204 | int show_fps;           // GB 2014
+      |     ^~~~~~~~
+i_video.c:203:7: error: declaration for parameter 'dascreen' but no such parameter
+  203 | byte *dascreen;
+      |       ^~~~~~~~
+i_video.c:202:9: error: declaration for parameter 'noblit' but no such parameter
+  202 | boolean noblit;
+      |         ^~~~~~
+i_video.c:201:16: error: declaration for parameter 'setsizeneeded' but no such parameter
+  201 | extern boolean setsizeneeded;
+      |                ^~~~~~~~~~~~~
+i_video.c:198:13: error: declaration for parameter 'ppro_blast_nobar' but no such parameter
+  198 | extern void ppro_blast_nobar(void *destin, void *src);  // as above but without doing lower part
+      |             ^~~~~~~~~~~~~~~~
+i_video.c:197:13: error: declaration for parameter 'blast_nobar' but no such parameter
+  197 | extern void blast_nobar(void *destin, void *src);       // as above but without doing lower part
+      |             ^~~~~~~~~~~
+i_video.c:196:13: error: declaration for parameter 'ppro_blast' but no such parameter
+  196 | extern void ppro_blast(void *destin, void *src);        // same but for PPro CPU
+      |             ^~~~~~~~~~
+i_video.c:195:13: error: declaration for parameter 'blast' but no such parameter
+  195 | extern void blast(void *destin, void *src);             // blits to VGA planar memory
+      |             ^~~~~
+i_video.c:194:13: error: declaration for parameter 'pent_blit' but no such parameter
+  194 | extern void pent_blit(void *, size_t);
+      |             ^~~~~~~~~
+i_video.c:728: error: expected '{' at end of input
+  728 | //----------------------------------------------------------------------------
+      | 
+i_video.c:678:1: warning: control reaches end of non-void function [-Wreturn-type]
+  678 | }
+      | ^
+At top level:
+i_video.c:27:19: warning: 'rcsid' defined but not used [-Wunused-const-variable=]
+   27 | static const char rcsid[] = "$Id: i_video.c,v 1.3 2000-08-12 21:29:28 fraggle Exp $";
+      |                   ^~~~~
+make.exe: *** [makefile:173: obj/i_video.o] Error 1
