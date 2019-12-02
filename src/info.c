@@ -180,6 +180,8 @@ void A_BetaSkullAttack(); // killough 10/98: beta lost souls attacked different
 // [yuzu] custom codepointer tests
 void A_FirePlasmaNoAmmo();
 void A_DropItem();
+void A_Saw64();
+void A_FireTrap();
 
 // ********************************************************************
 // State or "frame" information

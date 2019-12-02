@@ -31,6 +31,7 @@ rcsid[] = "$Id: p_enemy.c,v 1.3 2000-08-12 21:29:28 fraggle Exp $";
 
 #include "doomstat.h"
 #include "m_random.h"
+#include "m_fixed.h"
 #include "r_main.h"
 #include "p_maputl.h"
 #include "p_map.h"
@@ -2606,8 +2607,36 @@ void A_LineEffect(mobj_t *mo)
 void A_DropItem(mobj_t *mo)
 {
 	mobj_t     *mot;
-	mot = P_SpawnMobj (mo->x,mo->y,ONFLOORZ, mo->state->misc1);
-	mot->flags |= MF_DROPPED;
+	
+	if (mo->state->misc1)
+	{
+		mot = P_SpawnMobj (mo->x,mo->y,ONFLOORZ, (mo->state->misc1 - 1));
+		mot->flags |= MF_DROPPED;
+	}
+}
+
+void A_FireTrap(mobj_t *mo)
+{
+	mobj_t *pr;
+	
+	fixed_t x, y, z;
+	angle_t ang = mo->angle;
+	
+	x = mo->x;
+	y = mo->y;
+	z = mo->z + (mo->state->misc2 << FRACBITS);
+	
+	pr = P_SpawnMobj (x,y,z, mo->state->misc1);
+	
+	if (pr->info->seesound)
+		S_StartSound (pr, pr->info->seesound);
+	
+	pr->angle = ang;
+	pr->momx = FixedMul(pr->info->speed,finecosine[ang>>ANGLETOFINESHIFT]);
+	pr->momy = FixedMul(pr->info->speed,finesine[ang>>ANGLETOFINESHIFT]);
+	pr->momz = FixedMul(pr->info->speed,0);
+	
+	P_CheckMissileSpawn(pr);
 }
 
 //----------------------------------------------------------------------------

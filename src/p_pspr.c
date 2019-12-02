@@ -570,6 +570,49 @@ void A_Saw(player_t *player, pspdef_t *psp)
 }
 
 //
+// A_Saw64 experiment
+//
+
+void A_Saw64(player_t *player, pspdef_t *psp)
+{
+  int slope, damage = ((P_Random(pr_saw)&7)+1)*3;
+  angle_t angle = player->mo->angle;
+
+  int t = P_Random(pr_saw);
+
+  angle += (t - P_Random(pr_saw))<<18;
+
+  slope = P_AimLineAttack(player->mo, angle, MELEERANGE+1, 0);
+
+  P_LineAttack(player->mo, angle, MELEERANGE+1, slope, damage);
+
+  if (!linetarget)
+    {
+      S_StartSound(player->mo, sfx_sawful);
+      return;
+    }
+
+  S_StartSound(player->mo, sfx_sawhit);
+
+  // turn to face target
+  angle = R_PointToAngle2(player->mo->x, player->mo->y,
+                          linetarget->x, linetarget->y);
+
+  if (angle - player->mo->angle > ANG180)
+    if (angle - player->mo->angle < -ANG90/20)
+      player->mo->angle = angle + ANG90/21;
+    else
+      player->mo->angle -= ANG90/20;
+  else
+    if (angle - player->mo->angle > ANG90/20)
+      player->mo->angle = angle - ANG90/21;
+    else
+      player->mo->angle += ANG90/20;
+
+  player->mo->flags |= MF_JUSTATTACKED;
+}
+
+//
 // A_FireMissile
 //
 

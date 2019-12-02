@@ -1292,6 +1292,8 @@ extern void A_LineEffect();      // killough 11/98
 
 extern void A_FirePlasmaNoAmmo();
 extern void A_DropItem();
+extern void A_Saw64();
+extern void A_FireTrap();
 
 typedef struct {
   actionf_t cptr;  // actual pointer to the subroutine
@@ -1387,6 +1389,8 @@ deh_bexptr deh_bexptrs[] =
   
   {A_FirePlasmaNoAmmo,     "A_FirePlasmaNoAmmo"},
   {A_DropItem,     "A_DropItem"},
+  {A_Saw64,     "A_Saw64"},
+  {A_FireTrap,     "A_FireTrap"},
 
   // This NULL entry must be the last in the list
   {NULL,             "A_NULL"},  // Ty 05/16/98
